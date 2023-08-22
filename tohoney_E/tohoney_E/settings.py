@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'accounts',
+    'catagory',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +76,20 @@ WSGI_APPLICATION = 'tohoney_E.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tohoney_E',
+        'USER': 'nihadgo75',
+        'PASSWORD': 'nihadgo75',
+        'HOST': 'localhost',  # or the hostname where your MySQL server is running
+        'PORT': '3306',      # or the port on which your MySQL server is listening
     }
 }
 
@@ -124,7 +135,7 @@ STATICFILES_DIR =[
 ]
 # print(STATICFILES_DIR)
 
-MEDIA_ROOT=BASE_DIR / 'media'
+MEDIA_ROOT=BASE_DIR / 'core/media/'
 MEDIA_URL='media/'
 
 # Default primary key field type
