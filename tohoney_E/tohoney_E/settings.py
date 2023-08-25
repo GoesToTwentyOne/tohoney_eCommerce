@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'accounts',
-    'catagory',
+    'category',
+    'products',
+    'orders',
+    'cart',
+    'about',
+    'blog',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'tohoney_E.urls'
+AUTH_USER_MODEL = 'accounts.Account'
 
 TEMPLATES = [
     {
