@@ -28,6 +28,6 @@ urlpatterns = [
     path('cart/',include('cart.urls')),
     path('contact/',include('contact.urls')),
     # path('category/',include('category.urls')),
-    # path('order/',include('orders.urls')),
+    path('order/',include('orders.urls')),
     path('product/',include('products.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

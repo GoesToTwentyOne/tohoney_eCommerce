@@ -7,3 +7,5 @@ def user_login(request):
     return render(request, 'accounts/login.html')
 def user_wishlist(request):
     return render(request, 'accounts/wishlist.html')
+def user_dashboard(request):
+    return render(request, 'accounts/dashboard.html')
