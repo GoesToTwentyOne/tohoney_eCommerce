@@ -69,7 +69,7 @@
                                     <a href="javascript:void(0);">Shop <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown_style">
                                         <li><a href="{% url 'products' %}">Shop Page</a></li>
-                                        <li><a href="{% url 'single_products' %}">Product Details</a></li>
+                                        {% comment %} <li><a href="{% url 'single_products' %}">Product Details</a></li> {% endcomment %}
                                         <li><a href="{% url 'cart' %}">Shopping cart</a></li>
                                         <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                         <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
@@ -80,7 +80,7 @@
                                     <a href="javascript:void(0);">Pages <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown_style">
                                         <li><a href="{% url 'about' %}">About Page</a></li>
-                                        <li><a href="{% url 'single_products' %}">Product Details</a></li>
+                                        {% comment %} <li><a href="{% url 'single_products' %}">Product Details</a></li> {% endcomment %}
                                         <li><a href="{% url 'cart' %}">Shopping cart</a></li>
                                         <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                         <li><a href="{% url 'wishlist' %}">Wishlist</a></li>

@@ -13,5 +13,6 @@ def product(request,category_slug=None):
         products=ProductModel.objects.filter(is_available=True)
     return render(request,'products/shop.html',context={'products':products,'categories':categories})
 
-def single_product(request):
-    return render(request,'products/single-product.html')
+def single_product(request,product_slug,category_slug):
+    single_product = ProductModel.objects.get(slug=product_slug, category__slug=category_slug)
+    return render(request,'products/single-product.html',context={'product':single_product})

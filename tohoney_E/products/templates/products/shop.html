@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3><a href="single-product.html">{{product.product_name}}</a></h3>
+                                    <h3><a href="{% url 'single_product' product_slug=product.slug category_slug=product.category.slug %}">{{product.product_name}}</a></h3>
                                     <p class="pull-left">${{product.price}}
 
                                     </p>
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3><a href="single-product.html">{{product.product_name}}</a></h3>
+                                    <h3><a href="{% url 'single_product' product_slug=product.slug category_slug=product.category.slug %}">{{product.product_name}}</a></h3>
                                     <p class="pull-left">${{product.price}}
 
                                     </p>
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3><a href="single-product.html">{{product.product_name}}</a></h3>
+                                    <h3><a href="{% url 'single_product' product_slug=product.slug category_slug=product.category.slug %}">{{product.product_name}}</a></h3>
                                     <p class="pull-left">${{product.price}}
 
                                     </p>

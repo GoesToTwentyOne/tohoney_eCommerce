@@ -1,6 +1,7 @@
 from django.db import models
 from category.models import CategoryModel
 
+
 # Create your models here.
 class ProductModel(models.Model):
     product_name=models.CharField(max_length=150,unique=True)
