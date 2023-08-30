@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="http://themepresss.com/tf/html/tohoney/cart">
+                  
                         <table class="table-responsive cart-wrap">
                             <thead>
                                 <tr>
@@ -36,36 +36,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="images"><img src="{% static 'assets/images/cart/1.jpg' %}" alt=""></td>
-                                    <td class="product"><a href="single-product.html">Neture Honey</a></td>
-                                    <td class="ptice">$139.00</td>
-                                    <td class="quantity cart-plus-minus">
-                                        <input type="text" value="1" />
+                                {% for item in cart_items %}
+                                <tr class="cart-row" data-item-id="{{ item.id }}">
+                                    <td class="images"><img src="{{ item.product.product_image.url }}" alt=""></td>
+                                    <td class="product"><a href="single-product.html">{{ item.product.product_name }}</a></td>
+                                    <td class="price">${{ item.product.price }}</td>
+                                    <td>
+                                        <div class="col">
+                                            <div class="input-group input-spinner">
+                                                <div class="input-group-prepend">
+                                                    <form action="{% url 'remove_cart' product_id=item.product.id %}" method="post"> <!-- Use a separate URL for removing from cart -->
+                                                        {% csrf_token %}
+                                                        <button class="btn btn-light" type="submit">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ item.quantity }}" disabled />
+                                                <div class="input-group-append">
+                                                    <form action="{% url 'add_to_cart' product_id=item.product.id %}" method="post">
+                                                        {% csrf_token %}
+                                                        <button class="btn btn-light" type="submit">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
-                                    <td class="total">$139.00</td>
-                                    <td class="remove"><i class="fa fa-times"></i></td>
+                                    
+                                    
+                                    
+                                    <td class="total">${{ item.sub_total }}</td>
+                                    <td class="remove"><a href="{% url 'delete_cart' product_id=item.product.id %}"><i class="fa fa-times"></a></i></td>
                                 </tr>
-                                <tr>
-                                    <td class="images"><img src="{% static 'assets/images/cart/2.jpg' %}" alt=""></td>
-                                    <td class="product"><a href="single-product.html">Pure Olive Oil</a></td>
-                                    <td class="ptice">$684.47</td>
-                                    <td class="quantity cart-plus-minus">
-                                        <input type="text" value="1" />
-                                    </td>
-                                    <td class="total">$684.47</td>
-                                    <td class="remove"><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="images"><img src="{% static 'assets/images/cart/3.jpg' %}" alt=""></td>
-                                    <td class="product"><a href="single-product.html">Pure Coconut Oil</a></td>
-                                    <td class="ptice">$145.80</td>
-                                    <td class="quantity cart-plus-minus">
-                                        <input type="text" value="1" />
-                                    </td>
-                                    <td class="total">$145.80</td>
-                                    <td class="remove"><i class="fa fa-times"></i></td>
-                                </tr>
+                                {% endfor %}
+                                
+                                
                             </tbody>
                         </table>
                         <div class="row mt-60">
@@ -89,14 +96,15 @@
                                 <div class="cart-total text-right">
                                     <h3>Cart Totals</h3>
                                     <ul>
-                                        <li><span class="pull-left">Subtotal </span>$380.00</li>
-                                        <li><span class="pull-left"> Total </span> $380.00</li>
+                                        <li><span class="pull-left">Subtotal </span>${{total}}</li>
+                                        <li><span class="pull-left">Tax </span>${{tax}}</li>
+                                        <li><span class="pull-left"> Total </span> ${{grand_total}}</li>
                                     </ul>
                                     <a href="checkout.html">Proceed to Checkout</a>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                 
                 </div>
             </div>
         </div>

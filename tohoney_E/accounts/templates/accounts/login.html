@@ -18,25 +18,28 @@
     </div>
     <!-- .breadcumb-area end -->
     <!-- checkout-area start -->
-    <div class="account-area ptb-100">
+    <div class="account-area ptb-100 card mx-auto" style="max-width:800px; margin-top:40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
-                    <div class="account-form form-style">
-                        <p>User Name or Email Address *</p>
-                        <input type="email">
+                    <div class=" account-form form-style">
+                    <form method= "POST">
+                        {% csrf_token %}
+                        <p>User Name *</p>
+                        <input type="username" name="username">
                         <p>Password *</p>
-                        <input type="Password">
+                        <input type="Password" name='password'>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input id="password" type="checkbox">
+                                <input id="password" type="checkbox" disabled>
                                 <label for="password">Save Password</label>
                             </div>
                             <div class="col-lg-6 text-right">
                                 <a href="#">Forget Your Password?</a>
                             </div>
                         </div>
-                        <button>SIGN IN</button>
+                        <button type='submit'>SIGN IN</button>
+                    </form>
                         <div class="text-center">
                             <a href="register.html">Or Creat an Account</a>
                         </div>
