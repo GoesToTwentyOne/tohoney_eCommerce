@@ -3,8 +3,13 @@ from django.contrib.auth import login,logout,authenticate
 from accounts.forms import RegistrationForm
 from .models import Account
 from django.contrib.auth.decorators import login_required
+from cart.models import CartModel,CartItemModel
 
 # Create your views here.
+def get_session_create(request):
+    if not request.session.session_key:
+        request.session.create()
+        return request.session.session_key
 def user_register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -42,6 +47,15 @@ def user_login(request):
         username=request.POST.get('username')
         password=request.POST.get('password')
         user=authenticate(username=username, password=password)
+        session_id=get_session_create(request)
+        cart_id=CartModel.objects.get(cart_id=session_id)
+        is_cart_item_exist=CartItemModel.objects.filter(cart=cart_id).exists()
+        if is_cart_item_exist:
+            cart_item=CartItemModel.objects.filter(cart=cart_id)
+            for item in cart_item:
+                
+                item.user=user
+                item.save()
         login(request, user)
         return redirect('dashboard')
 
