@@ -1,17 +1,5 @@
 # Project Name  tohoney_eCommerce
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
 ## Project Overview
 
 Provide a brief introduction to your project here. Explain its purpose, scope, and any key highlights.
